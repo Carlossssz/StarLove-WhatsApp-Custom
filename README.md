@@ -1,2 +1,2 @@
 # StarLove-WhatsApp-Custom
-Customizar o WhatsApp
+Extensão para customizar o WhatsApp
