@@ -1,0 +1,20 @@
+/* Coluna de conversas */
+.wa-resizable {
+    overflow: auto !important;
+    resize: horizontal !important;
+    flex: 0 0 auto !important;
+}
+
+/* Remove a linha divisória */
+[data-testid="drawer-middle"] {
+    border: none !important;
+}
+
+/* Esconde a barra de rolagem */
+#pane-side {
+    scrollbar-width: none !important;
+}
+
+#pane-side::-webkit-scrollbar {
+    display: none !important;
+}

@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "StarLove WhatsApp Custom",
+  "version": "1.0.0",
+  "description": "Personaliza o WhatsApp Web",
+  "content_scripts": [
+    {
+      "matches": ["https://web.whatsapp.com/*"],
+      "js": ["content.js"],
+      "css": ["style.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
