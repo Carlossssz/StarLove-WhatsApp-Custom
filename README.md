@@ -1,2 +1,2 @@
 # StarLove-WhatsApp-Custom
-Extensão para customizar o WhatsApp
+Extensão de navegador para customizar o WhatsApp Web
