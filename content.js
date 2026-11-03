@@ -10,6 +10,7 @@ function iniciarConversaBox(conversaBox) {
 
         // Ativa o modo compacto quando a largura for <= 100px
         document.body.classList.toggle("miniBox", largura <= 110);
+        document.body.classList.toggle("maxBox", largura > 110);
     });
 
     resizeObserver.observe(conversaBox);
@@ -20,6 +21,7 @@ const conversaBox = document.querySelector(SELETOR_CONVERSAS);
 
 if (conversaBox) {
     iniciarConversaBox(conversaBox);
+    conversaBox.style.width = '110px !important';
 } else {
     // Aguarda o WhatsApp criar o elemento
     const mutationObserver = new MutationObserver(() => {
