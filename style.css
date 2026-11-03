@@ -1,8 +1,14 @@
+:root {
+    --tamanhoElementos: 85px !important;
+}
+
+
 /* Coluna de conversas */
 .wa-resizable {
     overflow: auto !important;
     resize: horizontal !important;
     flex: 0 0 auto !important;
+    min-width: calc(var(--tamanhoElementos) + 25px);
 }
 
 /* Remove a linha divisória */
@@ -17,4 +23,158 @@
 
 #pane-side::-webkit-scrollbar {
     display: none !important;
+}
+
+
+
+/*miniBox Styles*/
+.miniBox {
+
+    #pane-side {
+        padding-top: 5px;
+        border-right: 1px solid rgba(56, 56, 56, 0.628);
+    }
+
+    /*barra de pesquisa de conversas*/
+    [data-testid="chat-list-search-container"],
+    /* linha do header lateral. (Da lateral esquerda da lista de conversas)*/
+    [data-testid="drawer-left"],
+    /*todos os headers*/
+    [data-testid="chatlist-header"],
+    /*barra de filtros de conversas*/
+    [aria-label="chat-list-filters"],
+    /*ultima mensagem enviada*/
+    [data-testid="cell-frame-secondary"]> :first-child,
+    /*hora da mensagem*/
+    [data-testid="cell-frame-primary-detail"],
+    /*cetinha = span(elemento) de mouse hover, da cetinha para mais opções para clicar.*/
+    [aria-colindex="1"]> :last-child {
+        display: none !important;
+    }
+
+    [data-testid="cell-frame-container"] {
+
+        [aria-label]:not([aria-label*="ão lidas"],
+            [aria-label*="Mostrar status"]) {
+            display: none !important;
+        }
+    }
+
+
+    /* Apenas a conversa selecionada */
+    [data-testid*="list-item"]:has([aria-selected="true"]) [data-testid="cell-frame-container"] {
+        background-color: #2b2b2b !important;
+    }
+
+    /*boxPai, representa a parte mais externa de cada conversa*/
+    [data-testid*="list-item"] {
+        width: var(--tamanhoElementos);
+        margin-left: 10px !important;
+    }
+
+    [data-testid*="list-item"]:hover {
+        z-index: 2200000 !important;
+    }
+
+    [data-testid*="list-item"]:hover [data-testid="cell-frame-container"] {
+        transform: scale(1.6);
+        background-color: rgb(68, 68, 68) !important;
+    }
+
+    [data-testid*="list-item"]:hover .x1iyjqo2.x6ikm8r.x10wlt62.x1n2onr6.xlyipyv.xuxw1ft.x1rg5ohu.x1jchvi3.xjb2p0i.xo1l8bm.x17mssa0.x1ic7a3i.xaopwdm.xnpuxes {
+        font-size: 10px;
+        text-align: start;
+    }
+
+    /* item, representa a parte mais interna de cada conversa, que contém elementos */
+    [data-testid="cell-frame-container"] {
+        /* background-color: rgb(44, 43, 43) !important; */
+        width: var(--tamanhoElementos);
+        height: fit-content !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        margin: 0 !important;
+        padding-top: 3px !important;
+        border-radius: 10px !important;
+        transition: linear 0.05s;
+        /* box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.169); */
+    }
+
+    [data-testid="cell-frame-container"]:hover {
+        background-color: rgb(68, 68, 68) !important;
+    }
+
+    /* boxPaiTitleAndNotification, área onde fica o nome da pessoa e o icone de notificação */
+    *:has(> [aria-colindex="2"]) {
+        /* ERA 100% */
+        width: var(--tamanhoElementos);
+        padding: 0 !important;
+        margin: 0 !important
+    }
+
+    /*box da foto */
+    [data-testid="cell-frame-container"]> :first-child {
+        width: var(--tamanhoElementos);
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    /*box da foto só que mais interno no DOM kkk */
+    [data-testid="cell-frame-container"]> :first-child> :first-child {
+        width: var(--tamanhoElementos);
+        padding: 0 !important;
+        justify-content: center !important;
+    }
+
+    /* notificação de mensagens não lidas */
+    [data-testid="cell-frame-secondary"] {
+        position: absolute !important;
+        top: 30px !important;
+        right: 10px !important;
+    }
+
+
+
+    [data-testid="cell-frame-title"] {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Title / nome da pessoa */
+    .x1iyjqo2.x6ikm8r.x10wlt62.x1n2onr6.xlyipyv.xuxw1ft.x1rg5ohu.x1jchvi3.xjb2p0i.xo1l8bm.x17mssa0.x1ic7a3i.xaopwdm.xnpuxes {
+        width: 100%;
+        text-align: center !important;
+        font-size: 15px;
+        text-transform: lowercase;
+        padding-left: 5px !important;
+    }
+
+    .x1iyjqo2.x6ikm8r.x10wlt62.x1n2onr6.xlyipyv.xuxw1ft.x1rg5ohu.x1jchvi3.xjb2p0i.xo1l8bm.x17mssa0.x1ic7a3i.xaopwdm.xnpuxes::first-letter {
+        text-transform: uppercase;
+    }
+
+    /* conversation header */
+    [data-testid="conversation-header"] {
+        border-radius: 0px 0px 10px 10px;
+        width: 80%;
+        align-self: center;
+        background-color: rgb(33, 33, 33) !important;
+        box-shadow: 10px rgb(0, 0, 0);
+        align-items: flex-start;
+    }
+
+
+    /* conversas trancadas */
+    [aria-label="Conversas trancadas"] {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #pane-side>button>div>div.x78zum5.xdl72j9.xdt5ytf.x1iyjqo2.xl56j7k.xeuugli.x1n1b19v {
+        display: none;
+    }
+
+
 }
